@@ -10,7 +10,7 @@ if status is-interactive
     # set up tools
     test -d /home/linuxbrew/ && /home/linuxbrew/.linuxbrew/bin/brew shellenv | source
     mise activate fish | source
-    zoxide init fish --cmd cd | source
+    zoxide init fish | source
     fzf --fish | source
     atuin init fish --disable-up-arrow | source
 
