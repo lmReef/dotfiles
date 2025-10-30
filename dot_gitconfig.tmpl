@@ -1,0 +1,31 @@
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[user]
+	email = {{.email}}
+	name = lmReef
+[init]
+	defaultBranch = main
+[alias]
+	co = checkout
+	br = branch
+	st = status
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[push]
+	autoSetupRemote = true
+[pull]
+	ff = only
+
+{{- if eq .chezmoi.hostname "work" }}
+[includeIf "gitdir:~/projects/{{.work1}}/**"]
+	path = ~/.gitconfig-{{.work1}}
+[includeIf "gitdir:~/projects/{{.work2}}/**"]
+	path = ~/.gitconfig-{{.work2}}
+{{- end }}
