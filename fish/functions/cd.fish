@@ -1,4 +1,4 @@
-function cd --wraps="printf 'no cd use z ya dog'" --description "alias cd printf 'no cd use z ya dog'"
-  printf 'no cd use z ya dog' $argv
+function cd --wraps="printf 'no cd use z ya dog'" --wraps=z --description 'alias cd z'
+  z $argv
         
 end
