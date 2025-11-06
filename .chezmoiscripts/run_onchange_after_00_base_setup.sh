@@ -1,19 +1,23 @@
 #!/bin/bash
 
 function check_and_install() {
-    if pacman -v &>/dev/null; then
-        echo "sudo pacman -S --needed base-devel" "$@"
+    if which pacman &>/dev/null; then
+        sudo pacman -S --needed base-devel "$@"
 
         # paru
-        git clone https://aur.archlinux.org/paru.git ~/.cache/paru
-        cd ~/.cache/paru
-        makepkg -si
-    elif apt -v &>/dev/null; then
+        if ! which paru &>/dev/null; then
+            git clone https://aur.archlinux.org/paru.git ~/.cache/paru
+            cd ~/.cache/paru
+            makepkg -si
+        fi
+    elif which apt &>/dev/null; then
         # brew
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        if ! which brew &>/dev/null; then
+            /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        fi
 
-        echo "sudo apt update; sudo apt upgrade"
-        echo "sudo apt install" "$@"
+        sudo apt update; sudo apt upgrade
+        sudo apt install "$@"
     else
         echo "distro package manager not configured"
         exit 1
@@ -21,5 +25,4 @@ function check_and_install() {
 }
 
 check_and_install \
-    git \
     fish
