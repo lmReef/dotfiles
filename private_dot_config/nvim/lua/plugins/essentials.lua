@@ -40,7 +40,7 @@ return {
 				"shellcheck",
 				"shellharden",
 				-- python
-				"pyrefly",
+				"basedpyright",
 				"ruff",
 				-- js
 				"typescript-language-server",
