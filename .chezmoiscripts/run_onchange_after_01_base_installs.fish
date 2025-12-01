@@ -30,10 +30,16 @@ mise use -g \
     npm \
     prettier
 
-set uv_tools \
-    pywal \
-    nextflow \
-    nf-core
+set python_tools \
+    pywal
+if string match work (hostnamectl hostname) &>/dev/null
+    set -a python_tools \
+        nextflow \
+        nf-core \
+        jupyterlab \
+        jupytext \
+        nbdime
+end
 for tool in $uv_tools
     uv tool install $tool
 end
