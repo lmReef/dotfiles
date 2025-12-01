@@ -24,6 +24,19 @@
 	ff = only
 
 {{- if eq .chezmoi.hostname "work" }}
+[diff "jupyternotebook"]
+	command = git-nbdiffdriver diff -s
+[merge "jupyternotebook"]
+	driver = git-nbmergedriver merge %O %A %B %L %P
+	name = jupyter notebook merge driver
+[difftool "nbdime"]
+	cmd = git-nbdifftool diff -s \"$LOCAL\" \"$REMOTE\" \"$BASE\"
+[difftool]
+	prompt = false
+[mergetool "nbdime"]
+	cmd = git-nbmergetool merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+[mergetool]
+	prompt = false
 [includeIf "gitdir:~/projects/{{.work1}}/**"]
 	path = ~/.gitconfig-{{.work1}}
 [includeIf "gitdir:~/projects/{{.work2}}/**"]
