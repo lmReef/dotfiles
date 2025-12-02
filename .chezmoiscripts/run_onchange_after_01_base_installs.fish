@@ -17,7 +17,8 @@ check_and_install \
     neovim \
     mise \
     zoxide \
-    lsd
+    lsd \
+    awww
 
 mise use -g \
     watchexec \
