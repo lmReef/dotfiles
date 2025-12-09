@@ -44,3 +44,5 @@ end
 for tool in $uv_tools
     uv tool install $tool
 end
+
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher

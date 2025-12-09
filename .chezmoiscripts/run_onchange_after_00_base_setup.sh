@@ -16,7 +16,8 @@ function check_and_install() {
             /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         fi
 
-        sudo apt update; sudo apt upgrade
+        sudo apt update
+        sudo apt upgrade
         sudo apt install "$@"
     else
         echo "distro package manager not configured"

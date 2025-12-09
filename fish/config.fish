@@ -22,4 +22,14 @@ if status is-interactive
     # completions
     mise completion fish | source
     chezmoi completion fish | source
+
+    # hydro config
+    set -g hydro_fetch true
+    set -g fish_prompt_pwd_dir_length 20
+    set -g hydro_color_pwd $fish_color_cwd
+    set -g hydro_color_git $fish_color_param
+    set -g hydro_color_start $fish_color_command
+    set -g hydro_color_error $fish_color_error
+    set -g hydro_color_prompt $fish_color_cwd
+    set -g hydro_color_duration $fish_color_autosuggestion
 end
