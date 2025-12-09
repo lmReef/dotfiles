@@ -25,6 +25,7 @@ if status is-interactive
 
     # hydro config
     set -g hydro_fetch true
+    set -g hydro_multiline true
     set -g fish_prompt_pwd_dir_length 20
     set -g hydro_color_pwd $fish_color_cwd
     set -g hydro_color_git $fish_color_param
