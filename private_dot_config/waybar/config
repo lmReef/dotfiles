@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "hyprland/submap", "custom/music", "gamemode"],
     "modules-center": ["clock"],
-    "modules-right": ["tray", "custom/bar", "custom/swapaudio", "pulseaudio", "network"],
+    "modules-right": ["tray", "custom/bar", "custom/swapaudio", "pulseaudio", "network", "battery"],
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
@@ -53,13 +53,13 @@
     "battery": {
         "bat": "BAT0",
         "states": {
-            // "good": 95,
+            "good": 95,
             "warning": 30,
             "critical": 15
         },
         "format": "{icon}  {capacity}%",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
+        "format-good": "", // An empty format will hide the module
+        "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
