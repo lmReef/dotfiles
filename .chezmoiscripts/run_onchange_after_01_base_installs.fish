@@ -24,8 +24,7 @@ if which paru &>/dev/null
     check_and_install \
         swaync
 else if which apt &>/dev/null
-    check_and_install \
-        sway-notification-center
+    sudo apt install sway-notification-center
 end
 
 mise use -g \

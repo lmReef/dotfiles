@@ -40,7 +40,7 @@ return {
 				"shellcheck",
 				"shellharden",
 				-- python
-				"basedpyright",
+				"ty",
 				"ruff",
 				-- js
 				"typescript-language-server",
@@ -50,7 +50,7 @@ return {
 				"prettierd",
 				-- docker
 				"dockerfile-language-server",
-				"hadolint",
+				-- "hadolint",
 				-- c
 				"clangd",
 				"cpplint",
@@ -58,9 +58,7 @@ return {
 				-- other
 				"gdtoolkit",
 				"rustfmt",
-				"taplo",
 				"hyprls",
-				"arduino-language-server",
 				"ts_query_ls", -- treesitter query files
 			},
 		},
@@ -102,6 +100,10 @@ return {
 					"gdscript",
 					"python",
 					"bash",
+					"fish",
+					"json",
+					"yaml",
+					"toml",
 				},
 				highlight = {
 					enable = true,
@@ -112,6 +114,7 @@ return {
 				},
 			})
 			vim.treesitter.language.register("groovy", "nextflow")
+			vim.api.nvim_create_autocmd({ "FileType" }, { pattern = "dockerfile", command = "TSBufDisable highlight" })
 		end,
 	},
 
