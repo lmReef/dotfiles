@@ -1,7 +1,11 @@
 {{- $email := promptStringOnce . "email" "Email address" -}}
+{{- $work1 := promptStringOnce . "work1" "Workplace name 1" -}}
+{{- $work2 := promptStringOnce . "work2" "Workplace name 2" -}}
 
 [data]
     email = {{ $email | quote }}
+    work1 = {{ $work1 | quote }}
+    work2 = {{ $work2 | quote }}
 
 [merge]
     command = "nvim"
