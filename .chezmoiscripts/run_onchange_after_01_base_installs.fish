@@ -13,18 +13,33 @@ function check_and_install
     end
 end
 
+set -l build_dir ~/builds
+mkdir -p $build_dir
+
 check_and_install \
     neovim \
     mise \
     zoxide \
-    lsd \
-    awww
+    lsd
 
 if which paru &>/dev/null
-    check_and_install \
-        swaync
-else if which apt &>/dev/null
-    sudo apt install sway-notification-center
+    paru -S --needed \
+        swaync \
+        awww
+else if test -e /usr/bin/apt
+    sudo apt install \
+        sway-notification-center
+
+    if not which awww &>/dev/null
+        git clone https://codeberg.org/LGFae/awww $build_dir/
+        pushd $build_dir/awww
+
+        cargo build --release
+        ln -s ~/builds/awww/target/release/awww ~/.local/bin/
+        ln -s ~/builds/awww/target/release/awww-daemon ~/.local/bin/
+
+        popd
+    end
 end
 
 mise use -g \
