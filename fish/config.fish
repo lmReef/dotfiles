@@ -24,6 +24,7 @@ if status is-interactive
     # completions
     mise completion fish | source
     chezmoi completion fish | source
+    test -e ~/builds/awww/completions/awww.fish && source ~/builds/awww/completions/awww.fish
 
     # update theme
     wal -qnR
