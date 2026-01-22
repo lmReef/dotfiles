@@ -14,7 +14,7 @@ function fish_prompt --description 'Write out the prompt'
     set -g __fish_git_prompt_use_informative_chars 1
     # Unfortunately this only works if we have a sensible locale
     string match -qi "*.utf-8" -- $LANG $LC_CTYPE $LC_ALL
-    and set -g __fish_git_prompt_char_dirtystate \U1F4a9
+    and set -g __fish_git_prompt_char_dirtystate "*"
     set -g __fish_git_prompt_char_untrackedfiles "?"
     # remove leading whitespace
     set -l vcs (set_color normal; fish_vcs_prompt '(%s)' 2>/dev/null)
