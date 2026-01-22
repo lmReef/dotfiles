@@ -4,9 +4,9 @@ function check_and_install
     if which paru &>/dev/null
         paru -S --needed $argv
     else if which brew &>/dev/null
-        brew install $argv
+        brew install -q $argv
     else if which apt &>/dev/null
-        sudo apt install $argv
+        sudo apt install -yqq $argv
     else
         echo "package manager not found"
         exit 1
@@ -20,15 +20,17 @@ check_and_install \
     neovim \
     mise \
     zoxide \
-    lsd
+    lsd \
+    thunar
 
 if which paru &>/dev/null
     paru -S --needed \
         swaync \
         awww
 else if test -e /usr/bin/apt
-    sudo apt install \
-        sway-notification-center
+    sudo apt install -yqq \
+        sway-notification-center \
+        thunar
 
     if not which awww &>/dev/null
         git clone https://codeberg.org/LGFae/awww $build_dir/
