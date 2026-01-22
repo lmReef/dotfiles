@@ -45,12 +45,10 @@ return {
 				-- js
 				"typescript-language-server",
 				"svelte-language-server",
-				-- "astro-language-server",
 				"biome", -- for lsp, not formatter
 				"prettierd",
 				-- docker
 				"dockerfile-language-server",
-				-- "hadolint",
 				-- c
 				"clangd",
 				"cpplint",
@@ -108,9 +106,6 @@ return {
 				highlight = {
 					enable = true,
 					additional_vim_regex_highlighting = false,
-				},
-				indent = {
-					enable = true,
 				},
 			})
 			vim.treesitter.language.register("groovy", "nextflow")

@@ -1,5 +1,6 @@
 return {
 	{
+		-- https://github.com/nvim-mini/mini.nvim
 		"echasnovski/mini.nvim",
 		dependencies = {
 			"lewis6991/gitsigns.nvim",
@@ -9,7 +10,6 @@ return {
 			require("mini.surround").setup({})
 			require("mini.diff").setup({})
 			require("mini.cursorword").setup({})
-			require("mini.pairs").setup({})
 			require("mini.align").setup({})
 
 			local miniclue = require("mini.clue")

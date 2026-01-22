@@ -30,27 +30,6 @@ return {
 	},
 
 	{
-		"folke/zen-mode.nvim",
-		dependencies = {
-			"folke/twilight.nvim",
-		},
-		config = function()
-			require("zen-mode").setup({
-				plugins = {
-					twilight = { enabled = true },
-				},
-				on_open = function(_)
-					vim.cmd("silent !tmux set status off")
-				end,
-				on_close = function()
-					vim.cmd("silent !tmux set status on")
-				end,
-			})
-			vim.keymap.set("n", "<leader>z", vim.cmd.ZenMode, { desc = "ZenMode toggle" })
-		end,
-	},
-
-	{
 		"mbbill/undotree",
 		config = function()
 			vim.keymap.set("n", "<leader>u", function()
@@ -90,11 +69,7 @@ return {
 
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
-		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
-		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
 		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
-		---@module 'render-markdown'
-		---@type render.md.UserConfig
 		opts = {},
 	},
 }
