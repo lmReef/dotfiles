@@ -24,4 +24,7 @@ if status is-interactive
     # completions
     mise completion fish | source
     chezmoi completion fish | source
+
+    # update theme
+    wal -qnR
 end
