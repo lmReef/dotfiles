@@ -1,30 +1,58 @@
 function fish_prompt --description 'Write out the prompt'
     set -l last_status $status
-    set -l normal (set_color normal)
-    set -l status_color (set_color brgreen)
-    set -l cwd_color (set_color $fish_color_cwd)
-    set -l vcs_color (set_color brpurple)
+    set -q fish_prompt_pwd_full_dirs
+    or set -lx fish_prompt_pwd_full_dirs (math round 1 + $COLUMNS / 100  )
+
+    # cwd
+    set -l cwd (set_color $fish_color_cwd; prompt_pwd)
+
+    # git / vcs
+    set -g __fish_git_prompt_showdirtystate 1
+    set -g __fish_git_prompt_showuntrackedfiles 1
+    set -g __fish_git_prompt_showupstream informative
+    set -g __fish_git_prompt_showcolorhints 1
+    set -g __fish_git_prompt_use_informative_chars 1
+    # Unfortunately this only works if we have a sensible locale
+    string match -qi "*.utf-8" -- $LANG $LC_CTYPE $LC_ALL
+    and set -g __fish_git_prompt_char_dirtystate \U1F4a9
+    set -g __fish_git_prompt_char_untrackedfiles "?"
+    # remove leading whitespace
+    set -l vcs (set_color normal; fish_vcs_prompt '(%s)' 2>/dev/null)
+
+    # venv
+    set -q VIRTUAL_ENV_DISABLE_PROMPT
+    or set -g VIRTUAL_ENV_DISABLE_PROMPT true
+    set -q VIRTUAL_ENV
+    and set -l venv (set_color $fish_color_keyword; string replace ' ' @ (python --version))
+
+    # TODO: mise config get
+
+    # prompt status
     set -l prompt_status ""
-
-    # Since we display the prompt on a new line allow the directory names to be longer.
-    set -q fish_prompt_pwd_dir_length
-    or set -lx fish_prompt_pwd_dir_length 0
-
-    # Color the prompt differently when we're root
-    set -l suffix '❯'
-    if functions -q fish_is_root_user; and fish_is_root_user
-        if set -q fish_color_cwd_root
-            set cwd_color (set_color $fish_color_cwd_root)
-        end
-        set suffix '#'
-    end
-
-    # Color the prompt in red on error
+    set -l status_color (set_color $fish_color_user)
     if test $last_status -ne 0
         set status_color (set_color $fish_color_error)
-        set prompt_status $status_color "[" $last_status "]" $normal
+        set prompt_status $status_color "[" $last_status "]"
     end
 
-    echo -s (prompt_login) ' ' $cwd_color (prompt_pwd) $vcs_color (fish_vcs_prompt) $normal ' ' $prompt_status
-    echo -n -s $status_color $suffix ' ' $normal
+    # duration
+    set -l duration "$cmd_duration$CMD_DURATION"
+    if test $duration -gt 1000
+        set duration (set_color $fish_color_comment) (math --scale=0 $duration / 1000)s
+    else
+        set duration
+    end
+
+    # prompt suffix
+    set -l suffix '❯'
+
+    string join -n " " \
+        (prompt_login) \
+        $cwd \
+        $vcs \
+        $venv \
+        $prompt_status \
+        $duration
+    echo -n -s $status_color $suffix ' '
+    set_color normal
 end
