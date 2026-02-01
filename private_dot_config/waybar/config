@@ -86,9 +86,9 @@
     "custom/music": {
         "format": "{}",
         "max-length": 100,
-        "interval": 1, // Remove this if your script is endless and write in loop
-        "exec": "bash $HOME/.config/waybar/mediaplayer.sh 2>/dev/null", // Script in resources folder
-        "exec-if": "playerctl status | grep -qE 'Playing|Paused'"
+        "interval": 1,
+        "exec": "bash $HOME/.config/waybar/mediaplayer.sh 2>/dev/null",
+        "exec-if": "playerctl status 2>/dev/null | grep -qE 'Playing|Paused'"
     },
     "custom/bar": {
         "format": " | "
