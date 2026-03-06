@@ -40,6 +40,7 @@ require("lualine").setup({
 			"harpoon2",
 		},
 		lualine_x = {
+			require("opencode").statusline,
 			"filetype",
 		},
 		lualine_y = {
