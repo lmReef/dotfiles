@@ -34,6 +34,9 @@ return {
 
 		vim.o.autoread = true -- Required for `opts.events.reload`
 
+		-- experimental https://github.com/nickjvandyke/opencode.nvim#lsp
+		-- vim.g.opencode_opts.lsp.enabled = true
+
 		-- Recommended/example keymaps
 		vim.keymap.set({ "n", "x" }, "<leader>aa", function()
 			require("opencode").ask("@this: ", { submit = true })
