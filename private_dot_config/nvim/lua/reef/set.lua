@@ -1,4 +1,4 @@
-vim.opt.shell = "/bin/zsh"
+vim.opt.shell = "/bin/fish"
 
 vim.opt.nu = true
 vim.opt.relativenumber = true

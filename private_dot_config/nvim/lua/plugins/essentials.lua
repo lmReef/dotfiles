@@ -33,12 +33,13 @@ return {
 				"stylua",
 				"selene",
 				"lua-language-server",
-				-- bash/zsh
+				-- bash/zsh/fish
 				"bash-language-server",
 				"shfmt",
 				"beautysh",
 				"shellcheck",
 				"shellharden",
+				"fish_lsp",
 				-- python
 				"ty",
 				"ruff",
