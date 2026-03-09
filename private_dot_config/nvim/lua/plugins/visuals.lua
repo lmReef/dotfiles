@@ -14,6 +14,31 @@ return {
 
 	-- themes
 
+	{
+		"zaldih/themery.nvim",
+		lazy = false,
+		config = function()
+			require("themery").setup({
+				themes = {
+					"pywal",
+					"onedark",
+					"rose-pine",
+					"dracula",
+					"catppuccin",
+					"molokai",
+					"kanagawa",
+					"nightfox",
+					"tokyodark",
+					"tokyonight",
+					"gruvbox",
+					"vague",
+					"0x96f",
+				},
+				livePreview = true,
+			})
+		end,
+	},
+
 	{ "AlphaTechnolog/pywal.nvim", name = "pywal" },
 
 	{ "navarasu/onedark.nvim", name = "onedark" },
@@ -27,4 +52,8 @@ return {
 	{ "folke/tokyonight.nvim", name = "tokyonight" },
 	{ "morhetz/gruvbox", name = "gruvbox" },
 	{ "vague2k/vague.nvim", name = "vague" },
+	{
+		"filipjanevski/0x96f.nvim",
+		name = "0x96f",
+	},
 }
