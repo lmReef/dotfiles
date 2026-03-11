@@ -1,5 +1,4 @@
 return {
-	"brenoprata10/nvim-highlight-colors",
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 	"simrat39/symbols-outline.nvim",
 

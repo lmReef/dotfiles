@@ -4,7 +4,7 @@ function fish_prompt --description 'Write out the prompt'
     or set -lx fish_prompt_pwd_full_dirs (math round 1 + $COLUMNS / 100  )
 
     # cwd
-    set -l cwd (set_color $fish_color_cwd; prompt_pwd)
+    set -l cwd (set_color $fish_color_end; prompt_pwd)
 
     # git / vcs
     set -g __fish_git_prompt_showdirtystate 1
@@ -29,7 +29,7 @@ function fish_prompt --description 'Write out the prompt'
 
     # prompt status
     set -l prompt_status ""
-    set -l status_color (set_color $fish_color_user)
+    set -l status_color (set_color $fish_color_end)
     if test $last_status -ne 0
         set status_color (set_color $fish_color_error)
         set prompt_status $status_color "[" $last_status "]"
