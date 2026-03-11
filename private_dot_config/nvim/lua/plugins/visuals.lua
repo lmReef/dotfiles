@@ -40,6 +40,25 @@ return {
 		lazy = true,
 	},
 
+	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+		opts = {},
+		lazy = true,
+	},
+
+	{
+		"rcarriga/nvim-notify",
+		opts = {
+			render = "wrapped-compact",
+			stages = "fade_in_slide_out",
+			fps = 90,
+			timeout = 3000,
+			top_down = false,
+			background_colour = "TabLine",
+		},
+	},
+
 	-- themes
 
 	{
