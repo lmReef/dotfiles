@@ -53,6 +53,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.filetype.add({
 	extension = {
 		nf = "nextflow",
+		rhai = "rust",
 		config = function(path, bufnr)
 			local function checkForFile(query)
 				for _index, dir in ipairs({ ".", "..", "../..", "../../.." }) do
