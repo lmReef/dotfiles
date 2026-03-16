@@ -3,8 +3,7 @@ if status is-interactive
 
     set -a PATH \
         ~/.local/bin \
-        ~/.local/bin/scripts \
-        ~/.cargo/bin
+        ~/.local/bin/scripts
 
     set -x EDITOR nvim
 
