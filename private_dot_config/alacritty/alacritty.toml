@@ -25,3 +25,6 @@ save_to_clipboard = true
 style = { blinking = "On", shape = "Beam" }
 vi_mode_style = { blinking = "On", shape = "Block" }
 blink_timeout = 0
+
+[font]
+normal = { family="JetBrainsMono Nerd Font" }
