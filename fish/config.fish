@@ -4,8 +4,7 @@ if status is-interactive
     set -a PATH \
         ~/.local/bin \
         ~/.local/bin/scripts \
-        ~/.cargo/bin \
-        ~/.atuin/bin
+        ~/.cargo/bin
 
     set -x EDITOR nvim
 
@@ -19,7 +18,6 @@ if status is-interactive
     mise activate fish | source
     zoxide init fish | source
     fzf --fish | source
-    atuin init fish --disable-up-arrow | source
 
     # completions
     mise completion fish | source
