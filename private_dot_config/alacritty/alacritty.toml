@@ -5,6 +5,9 @@
 live_config_reload = true
 import = ["themes/kanagawa_wave.toml"]
 
+[terminal]
+shell = { program = "/usr/bin/env", args = ["fish", "-l"] }
+
 [window]
 padding = { x = 0, y = 0 }
 opacity = 0.95
@@ -27,4 +30,4 @@ vi_mode_style = { blinking = "On", shape = "Block" }
 blink_timeout = 0
 
 [font]
-normal = { family="JetBrainsMono Nerd Font" }
+normal = { family = "JetBrainsMono Nerd Font" }
