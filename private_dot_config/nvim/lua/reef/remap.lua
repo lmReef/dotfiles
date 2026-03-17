@@ -44,6 +44,7 @@ vim.keymap.set("n", "<leader>gp", ":Git push<cr>", { desc = "Git push" })
 vim.keymap.set("n", "<leader>go", ":Git pull<cr>", { desc = "Git pull" })
 vim.keymap.set("n", "<leader>gg", ":GBrowse<cr>", { desc = "Open file in github" })
 vim.keymap.set("n", "<leader>fa", ":Git add %<cr>", { desc = "Git add" })
+vim.keymap.set("n", "<leader>gl", ":!gh auth switch<cr>", { desc = "Switch Github accounts" })
 
 -- open links
 -- vim.keymap.set("n", "<cr>", function()

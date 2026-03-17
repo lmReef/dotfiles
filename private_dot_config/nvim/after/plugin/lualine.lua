@@ -1,10 +1,23 @@
+local function set_git_user()
+	local user = vim.fn.system("git config get user.name 2> /dev/null | tr -d '\n'")
+	if user ~= "" then
+		vim.b.git_user = " " .. user
+	else
+		vim.b.git_user = ""
+	end
+end
+
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+	callback = function()
+		set_git_user()
+	end,
+})
+
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
-		theme = GetCurrentTheme(),
-		component_separators = { left = "|", right = "|" },
-		-- component_separators = { left = '', right = '' },
-		-- section_separators = { left = '', right = '' },
+		component_separators = { left = "", right = "" },
+		section_separators = { left = " ", right = " " },
 		disabled_filetypes = {
 			statusline = {},
 			winbar = {},
@@ -19,7 +32,9 @@ require("lualine").setup({
 		},
 	},
 	sections = {
-		lualine_a = { "mode" },
+		lualine_a = {
+			"mode",
+		},
 		lualine_b = {
 			{
 				"filename",
@@ -32,28 +47,30 @@ require("lualine").setup({
 					newfile = "",
 				},
 			},
+			"location",
+			"diff",
 			"diagnostics",
 		},
 		lualine_c = {
-			"progress",
-			"diff",
 			"harpoon2",
 		},
 		lualine_x = {
 			require("opencode").statusline,
-			"filetype",
 		},
 		lualine_y = {
+			"filetype",
 			function()
 				if os.getenv("VIRTUAL_ENV_PROMPT") then
 					return " " .. os.getenv("VIRTUAL_ENV_PROMPT")
 				end
 				return ""
 			end,
+			function()
+				return vim.b.git_user
+			end,
 		},
 		lualine_z = {
 			"branch",
-			-- "location",
 		},
 	},
 	inactive_sections = {
