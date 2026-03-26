@@ -1,8 +1,22 @@
 return {
-	"tpope/vim-fugitive",
 	"tpope/vim-rhubarb",
 
 	{ "akinsho/git-conflict.nvim", version = "*", config = true },
+
+	{
+		"tpope/vim-fugitive",
+		config = function()
+			vim.keymap.set("n", "<leader>gs", ":tab Git<cr>))", { desc = "Git status" })
+			vim.keymap.set("n", "<leader>gb", ":Git blame<cr>", { desc = "Git blame" })
+			vim.keymap.set("n", "<leader>gd", ":Gdiffsplit<cr>", { desc = "Git diff side-by-side" })
+			vim.keymap.set("n", "<leader>gc", ":Git commit<cr>", { desc = "Git commit" })
+			vim.keymap.set("n", "<leader>gp", ":Git push<cr>", { desc = "Git push" })
+			vim.keymap.set("n", "<leader>go", ":Git pull<cr>", { desc = "Git pull" })
+			vim.keymap.set("n", "<leader>gg", ":GBrowse<cr>", { desc = "Open file in github" })
+			vim.keymap.set("n", "<leader>ga", ":Git add %<cr>", { desc = "Git add" })
+			vim.keymap.set("n", "<leader>gl", ":!gh auth switch<cr>", { desc = "Switch Github accounts" })
+		end,
+	},
 
 	{
 		"lewis6991/gitsigns.nvim",
@@ -54,7 +68,7 @@ return {
 			current_line_blame_opts = {
 				virt_text = true,
 				virt_text_pos = "right_align", -- 'eol' | 'overlay' | 'right_align'
-				delay = 500,
+				delay = 300,
 				ignore_whitespace = false,
 				virt_text_priority = 100,
 			},

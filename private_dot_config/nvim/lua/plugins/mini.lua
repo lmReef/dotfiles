@@ -7,7 +7,6 @@ return {
 	config = function()
 		require("mini.bracketed").setup({})
 		require("mini.surround").setup({})
-		require("mini.diff").setup({})
 		require("mini.cursorword").setup({})
 		require("mini.align").setup({})
 		require("mini.pairs").setup({})
