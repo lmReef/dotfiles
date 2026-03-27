@@ -45,7 +45,7 @@ return {
 				"typescript-language-server",
 				"svelte-language-server",
 				"biome", -- for lsp, not formatter
-				"prettierd",
+				-- "prettierd",
 				-- docker
 				"dockerfile-language-server",
 				-- c
@@ -57,6 +57,7 @@ return {
 				"rustfmt",
 				"hyprls",
 				"ts_query_ls", -- treesitter query files
+				"write-good",
 			},
 		},
 	},

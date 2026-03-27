@@ -1,6 +1,8 @@
 return {
 	{ "nvim-lua/plenary.nvim", lazy = true },
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
+	"elkowar/yuck.vim", -- eww config lang
+	"gpanders/nvim-parinfer", -- handle lisp style brackets (yuck)
 
 	{
 		"mbbill/undotree",
